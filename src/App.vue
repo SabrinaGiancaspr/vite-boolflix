@@ -11,6 +11,14 @@ export default {
     return {
       store: store,
     }
+  },
+  methods: {
+    searchFunction(){
+      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=2666caa6db838aa58fe40fb4511ab3df&query=${this.store.saveName}`)
+      .then(res =>{
+        console.log(res.data)
+      })
+    }
   }
 }
 
@@ -18,7 +26,7 @@ export default {
 </script>
 
 <template>
-<AppHeader/>
+<AppHeader @performSearch="searchFunction" />
 </template>
 
 <style scoped></style>

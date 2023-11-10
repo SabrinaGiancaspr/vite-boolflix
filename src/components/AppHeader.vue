@@ -7,7 +7,9 @@ export default{
         }
     },
     methods: {
-        
+        onclick(){
+            this.$emit('performSearch')
+        }
     }
     
 }
@@ -19,8 +21,8 @@ export default{
         <div class="navbar">
             <img class="logo" src="" alt="">
             <div class="searchbar">
-                <input v-model="store.saveName" type="search" name="" id="" placeholder="search">
-                <button class="btn" >search</button>
+                <input v-model="store.saveName"   type="search" name="" id="" placeholder="search">
+                <button class="btn" @click="onclick()" >search</button>
             </div>
         </div>
     </div>
