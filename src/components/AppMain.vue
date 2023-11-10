@@ -16,8 +16,8 @@ export default {
     <div class="container">
         <div class="row">
             <div class="col-4" v-for="movie in store.moviesArray">
-                {{ movie.original_title }}
-                <!-- <AppCard /> -->
+             
+                <AppCard :movie="movie"/>
             </div>
         </div>
     </div>

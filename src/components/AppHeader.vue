@@ -1,6 +1,7 @@
 <script>
 import { store } from '../store';
 export default{
+    emits: ['performSearch'],
     data(){
         return{
             store: store, 
