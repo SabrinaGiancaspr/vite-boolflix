@@ -1,28 +1,60 @@
 <script>
-export default{
 
-    props:{
-        movie: Object,
+export default {
+    props: {
+        movie: {
+            type: Object,
+        }
+    },
+    // calcolare dinamicamente la bandiera del paese in base alla lingua originale del film
+    computed: {
+        flag() {
+            if (this.movie.original_language === 'it') {
+                return 'italy.png'
+            } else if (this.movie.original_language === 'en') {
+                return 'uk.png'
+            } else if (this.movie.original_language === 'de') {
+                return 'germany.png'
+            } else if (this.movie.original_language === 'es') {
+                return 'spain.png'
+            } else if (this.movie.original_language === 'fr') {
+                return 'france.webp'
+            } else {
+                return false;
+            }
+        }
     }
 }
+
 
 </script>
 
 <template>
-<div class="card">
-    <ul class="info">
-        <li>{{ movie.title }}</li>
-        <li>{{ movie.original_title }}</li>
-        <li>{{ movie.original_language }}</li>
-        <li>{{ movie.vote_average }}</li>
+    <div class="card">
+        <ul class="info">
+            <!-- Visualizza le informazioni del film, inclusa la bandiera del paese se disponibile -->
+            <li> {{ movie.title ||  }} </li>
+            <li> {{ movie.original_title  }} </li>
 
-    </ul>
-</div>
+            <!-- Visualizza la bandiera solo se disponibile, altrimenti mostra la lingua originale del film -->
+            <li class="flag"> <img v-show="flag != false" :src="flag" alt="">
+                <span v-show="flag === false"> {{ movie.original_language }}</span>
+            </li>
+            <li> {{ movie.vote_average }} </li>
+
+        </ul>
+    </div>
 </template>
 
 <style lang="scss" scoped>
-
-.card{
+.card {
     border: 1px solid red;
+.info{
+    display: flex;
+    flex-direction: column;
+    .flag{
+        max-width: 40px;
+    }
+}
 }
 </style>

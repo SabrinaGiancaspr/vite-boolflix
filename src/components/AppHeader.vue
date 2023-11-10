@@ -1,14 +1,17 @@
 <script>
+// Importa il tuo oggetto "store" reattivo
 import { store } from '../store';
 export default{
+    // Definisce gli eventi personalizzati che possono essere emessi da questo componente
     emits: ['performSearch'],
     data(){
         return{
-            store: store, 
+            store: store, // Inizializza la proprietà dati "store" con lo store reattivo importato
         }
     },
     methods: {
         onclick(){
+             // Emetti l'evento 'performSearch' quando il pulsante viene cliccato
             this.$emit('performSearch')
         }
     }
@@ -21,6 +24,7 @@ export default{
     <div class="container">
         <div class="navbar">
             <img class="logo" src="" alt="">
+            <!-- Barra di ricerca con campo di input e pulsante di ricerca -->
             <div class="searchbar">
                 <input v-model="store.saveName"   type="search" name="" id="" placeholder="search">
                 <button class="btn" @click="onclick()" >search</button>
