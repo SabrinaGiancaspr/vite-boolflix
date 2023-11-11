@@ -49,7 +49,7 @@ export default {
             for (let i = 0; i < 5; i++) {
                 if (i + 1 <= this.starRating) {
                     starsArray.push('fa-solid')
-                } else  {
+                } else {
                     starsArray.push('fa-regular')
                 }
 
@@ -68,23 +68,16 @@ export default {
     <div class="card">
         <ul class="info">
             <!-- Visualizza le informazioni del film, inclusa la bandiera del paese se disponibile -->
-            <li> {{ movie.title }} </li>
-            <li> {{ movie.original_title }} </li>
+            <li>Title: {{ movie.title }} </li>
+            <li>Original Title: {{ movie.original_title }} </li>
             <!-- Visualizza la bandiera solo se disponibile, altrimenti mostra la lingua originale del film -->
-            <li class="flag"> <img v-show="flag != false" :src="flag" alt="">
+            <li class="flag">
+                <img v-show="flag != false" :src="flag" alt="">
                 <span v-show="flag === false"> {{ movie.original_language }}</span>
             </li>
-            <li> {{ starRating }} </li>
-            <li>
-                <font-awesome-icon v-for="star in starIcon" :icon= "`${star} fa-star `"/>
-
-            </li>
-            <!-- <font-awesome-icon  :icon="" /> -->
-
+            <li>Rating: <font-awesome-icon class="star-icon" v-for="star in starIcon" :icon="`${star} fa-star `" /> </li>
         </ul>
-        <div class="poster">
-            <img :src="poster" alt="">
-        </div>
+        <img class="poster" :src="poster" alt="">
     </div>
 </template>
 

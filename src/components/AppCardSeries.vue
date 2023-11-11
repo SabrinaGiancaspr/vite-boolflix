@@ -60,21 +60,21 @@ export default {
 <template>
     <div class="card">
         <ul class="info">
-            <li>{{ serie.name }}</li>
-            <li>{{  serie.original_name }}</li>
+            <li class="title">Title: {{ serie.name }}</li>
+            <li>Original Title: {{  serie.original_name }}</li>
             <li class="flag"> 
                 <img v-show="flag != false" :src="flag" alt="">
-                <span v-show="flag === false"> {{ serie.original_language}}</span>
+                <span v-show="flag === false">Language: {{ serie.original_language}}</span>
             </li>
-            <li>{{starRating}}</li>
-            <li>
-                <font-awesome-icon v-for="star in starIcon" :icon= "`${star} fa-star `"/>
-            </li>
+            <li>Rating: <font-awesome-icon class="star-icon" v-for="star in starIcon" :icon= "`${star} fa-star `"/></li>
+            <li>Overview: {{ serie.overview }}</li>
         </ul>
-        <div class="poster">
-            <img :src="poster" alt="">
+        <div >
+            <img class="poster" :src="poster" alt="">
         </div>
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+</style>

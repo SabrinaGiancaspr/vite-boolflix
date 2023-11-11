@@ -37,13 +37,13 @@ export default {
 // header 
 .header {
     width: 100%;
+    background-color: rgba(15, 15, 15, 0.924);
 }
 
 // nav 
 .navbar {
     display: flex;
     padding: 20px;
-    background-color: rgba(15, 15, 15, 0.924);
     justify-content: space-between;
     align-items: center;
 
@@ -60,6 +60,11 @@ export default {
         padding: 7px;
         border-radius: 10px;
         margin-left: 5px;
+        cursor: pointer;
+        
+        &:hover{
+            transform: rotate(180deg);
+        }
     }
 }
 </style>

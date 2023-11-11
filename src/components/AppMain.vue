@@ -19,27 +19,23 @@ export default {
 
 <template>
     <div class="container">
-        <h1 class="category">Films:</h1>
+        <h1 class="category" v-show="store.moviesArray.length > 0">Films:</h1>
         <div class="row">
-
             <!-- Itera attraverso l'array di film nello store e visualizza il componente AppCard per ciascun film -->
-            <div class="col-3" v-for="movie in store.moviesArray">
-                <AppCardMovie :movie="movie" />
-            </div>
+            <AppCardMovie v-for="movie in store.moviesArray" :movie="movie" />
         </div>
-        <h1 class="category">Series:</h1>
+        <h1 class="category"  v-show="store.seriesArray.length > 0">Series:</h1>
         <div class="row">
-            <div class="col-3" v-for="serie in store.seriesArray">
-                <AppCardSeries :serie="serie" />
-            </div>
+            <AppCardSeries v-for="serie in store.seriesArray" :serie="serie" />
         </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
 .category {
-    padding: 10px 0 10px 10px;
+    padding: 50px 0 50px 10px;
     display: flex;
     justify-content: center;
+    color: white;
 }
 </style>
