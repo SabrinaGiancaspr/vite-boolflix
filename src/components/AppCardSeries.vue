@@ -69,7 +69,6 @@ export default {
             <li>{{starRating}}</li>
             <li>
                 <font-awesome-icon v-for="star in starIcon" :icon= "`${star} fa-star `"/>
-
             </li>
         </ul>
         <div class="poster">
