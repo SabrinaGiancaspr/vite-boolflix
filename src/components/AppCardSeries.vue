@@ -22,6 +22,13 @@ export default {
             } else {
                 return '';
             }
+        },
+
+        poster (){
+            if (this.serie.poster_path == null){
+                return 'madame.jpeg';
+            }
+            return `https://image.tmdb.org/t/p/w500${this.serie.poster_path}`
         }
     }
 }
@@ -38,6 +45,9 @@ export default {
             </li>
             <li>{{ serie.vote_average }}</li>
         </ul>
+        <div class="poster">
+            <img :src="poster" alt="">
+        </div>
     </div>
 </template>
 
