@@ -1,16 +1,16 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-img{
+img {
     width: 100%;
     display: block;
 }
 
 .container {
-    max-width: 1024px;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -24,24 +24,29 @@ ul {
 }
 
 .row {
+    margin: 0 auto;
+    max-width: 90%;
     display: flex;
     flex-wrap: wrap;
 }
 
-.col-4{
-    flex-basis:calc(100% / 12 * 4);
+.col-3 {
+    flex-basis: 342px;
     border: 1px solid black;
 }
 
 .card {
     border: 1px solid red;
+
+
 }
 
-.info{
+.info {
     display: flex;
     flex-direction: column;
+
 }
 
-.flag{
+.flag {
     max-width: 40px;
 }

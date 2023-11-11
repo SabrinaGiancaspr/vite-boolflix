@@ -34,7 +34,7 @@ export default {
             if (this.serie.poster_path == null){
                 return 'madame.jpeg';
             }
-            return `https://image.tmdb.org/t/p/w500${this.serie.poster_path}`
+            return `https://image.tmdb.org/t/p/w342${this.serie.poster_path}`
         },
         starRating() {
             const rating = Math.ceil(this.serie.vote_average / 2);
@@ -49,7 +49,6 @@ export default {
                 } else  {
                     starsArray.push('fa-regular')
                 }
-
             }
             return starsArray;
             // return index <= this.starRating ? 'fas fa-star' : 'far fa-star';
@@ -67,7 +66,7 @@ export default {
                 <img v-show="flag != false" :src="flag" alt="">
                 <span v-show="flag === false"> {{ serie.original_language}}</span>
             </li>
-            <li>{{ serie.vote_average }}</li>
+            <li>{{starRating}}</li>
             <li>
                 <font-awesome-icon v-for="star in starIcon" :icon= "`${star} fa-star `"/>
 

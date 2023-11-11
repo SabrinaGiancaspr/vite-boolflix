@@ -26,8 +26,8 @@ export default {
           this.store.moviesArray = res.data.results
           console.log(this.store.moviesArray)
         })
-        axios.get(`https://api.themoviedb.org/3/search/tv?api_key=2666caa6db838aa58fe40fb4511ab3df&query=${this.store.saveName}`)
-        .then(res=>{
+      axios.get(`https://api.themoviedb.org/3/search/tv?api_key=2666caa6db838aa58fe40fb4511ab3df&query=${this.store.saveName}`)
+        .then(res => {
           this.store.seriesArray = res.data.results
           // console.log(this.store.seriesArray)
         })

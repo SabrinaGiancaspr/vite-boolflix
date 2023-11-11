@@ -11,23 +11,25 @@ export default {
             store: store,
         };
     },
-    components: { AppCardMovie, AppCardSeries} // Registra il componente AppCard per l'utilizzo in questo componente
- // Registra il componente AppCard per l'utilizzo in questo componente
-// Registra il componente AppCard per l'utilizzo in questo componente
+    components: { AppCardMovie, AppCardSeries } // Registra il componente AppCard per l'utilizzo in questo componente
+
 }
 
 </script>
 
 <template>
     <div class="container">
+        <h1 class="category">Films:</h1>
         <div class="row">
+
             <!-- Itera attraverso l'array di film nello store e visualizza il componente AppCard per ciascun film -->
-            <div class="col-4" v-for="movie in store.moviesArray">
-                <AppCardMovie :movie="movie"/>
+            <div class="col-3" v-for="movie in store.moviesArray">
+                <AppCardMovie :movie="movie" />
             </div>
         </div>
+        <h1 class="category">Series:</h1>
         <div class="row">
-            <div class="col-4 serie" v-for="serie in store.seriesArray">
+            <div class="col-3" v-for="serie in store.seriesArray">
                 <AppCardSeries :serie="serie" />
             </div>
         </div>
@@ -35,7 +37,9 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.serie{
-    background-color: red;
+.category {
+    padding: 10px 0 10px 10px;
+    display: flex;
+    justify-content: center;
 }
 </style>

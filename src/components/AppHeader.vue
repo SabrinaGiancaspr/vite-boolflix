@@ -23,11 +23,11 @@ export default{
 <header class="header">
     <div class="container">
         <div class="navbar">
-            <img class="logo" src="" alt="">
+            <p class="logo">BOOLFLIX</p>
             <!-- Barra di ricerca con campo di input e pulsante di ricerca -->
             <div class="searchbar">
-                <input v-model="store.saveName"   type="search" name="" id="" placeholder="search">
-                <button class="btn" @click="onclick()" >search</button>
+                <input class="bar"  v-model="store.saveName"   type="search" name="" id="" placeholder="Search">
+                <button class="btn" @click="onclick()">Enter</button>
             </div>
         </div>
     </div>
@@ -45,6 +45,24 @@ export default{
 .navbar{
     display: flex;
     padding: 20px;
-    border: 1px solid black;
+    background-color: rgba(15, 15, 15, 0.924);
+    justify-content: space-between;
+    align-items: center;
+
+    .logo{
+        color: red;
+        font-size: 20px;
+    }
+
+    .bar{
+        padding: 5px;
+        border-radius: 10px;
+    }
+    .btn{
+        padding: 7px;
+        border-radius: 10px;
+        margin-left: 5px;
+    }
+
 }
 </style>
