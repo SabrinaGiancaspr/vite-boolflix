@@ -24,12 +24,17 @@ export default {
                 return '';
             }
         },
-        
-        poster (){
-            if (this.movie.poster_path == null){
+
+        poster() {
+            if (this.movie.poster_path == null) {
                 return 'madame.jpeg';
             }
             return `https://image.tmdb.org/t/p/w500${this.movie.poster_path}`
+        },
+
+        starRating() {
+            const rating = Math.round(this.movie.vote_average / 2);
+            return rating;
         }
     }
 }
@@ -42,12 +47,12 @@ export default {
         <ul class="info">
             <!-- Visualizza le informazioni del film, inclusa la bandiera del paese se disponibile -->
             <li> {{ movie.title }} </li>
-            <li> {{ movie.original_title  }} </li>
+            <li> {{ movie.original_title }} </li>
             <!-- Visualizza la bandiera solo se disponibile, altrimenti mostra la lingua originale del film -->
             <li class="flag"> <img v-show="flag != false" :src="flag" alt="">
                 <span v-show="flag === false"> {{ movie.original_language }}</span>
             </li>
-            <li> {{ movie.vote_average }} </li>
+            <li> {{ starRating }} </li>
         </ul>
         <div class="poster">
             <img :src="poster" alt="">
@@ -55,6 +60,4 @@ export default {
     </div>
 </template>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
