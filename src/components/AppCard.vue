@@ -9,6 +9,7 @@ export default {
     // calcolare dinamicamente la bandiera del paese in base alla lingua originale del film
     computed: {
         flag() {
+
             if (this.movie.original_language === 'it') {
                 return 'italy.png'
             } else if (this.movie.original_language === 'en') {
@@ -20,7 +21,7 @@ export default {
             } else if (this.movie.original_language === 'fr') {
                 return 'france.webp'
             } else {
-                return false;
+                return '';
             }
         }
     }
@@ -33,7 +34,7 @@ export default {
     <div class="card">
         <ul class="info">
             <!-- Visualizza le informazioni del film, inclusa la bandiera del paese se disponibile -->
-            <li> {{ movie.title ||  }} </li>
+            <li> {{ movie.title }} </li>
             <li> {{ movie.original_title  }} </li>
 
             <!-- Visualizza la bandiera solo se disponibile, altrimenti mostra la lingua originale del film -->
@@ -47,14 +48,5 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.card {
-    border: 1px solid red;
-.info{
-    display: flex;
-    flex-direction: column;
-    .flag{
-        max-width: 40px;
-    }
-}
-}
+
 </style>

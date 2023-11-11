@@ -21,15 +21,15 @@ export default {
   methods: {
     searchFunction() {
       // Effettua una richiesta GET all'API di The Movie Database (TMDb) utilizzando Axios
-      // axios.get(`https://api.themoviedb.org/3/search/movie?api_key=2666caa6db838aa58fe40fb4511ab3df&query=${this.store.saveName}`)
-      //   .then(res => {
+      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=2666caa6db838aa58fe40fb4511ab3df&query=${this.store.saveName}`)
+        .then(res => {
           // Aggiorna la proprietà moviesArray nello store con la risposta dell'API
-        //   this.store.moviesArray = res.data.results
-        // })
-        axios.get(`https://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d&language=it_IT&query=${this.store.saveName}`)
+          this.store.moviesArray = res.data.results
+        })
+        axios.get(`https://api.themoviedb.org/3/search/tv?api_key=2666caa6db838aa58fe40fb4511ab3df&query=${this.store.saveName}`)
         .then(res=>{
-          // this.store.seriesArray = res.data.results
-          console.log(res)
+          this.store.seriesArray = res.data.results
+          console.log(this.store.seriesArray)
         })
     }
   }

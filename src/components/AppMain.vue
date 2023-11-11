@@ -3,13 +3,15 @@
 import { store } from '../store';
 // Importa il componente AppCard
 import AppCard from './AppCard.vue';
+import AppCardSeries from './AppCardSeries.vue';
 export default {
     data() {
         return {
             store: store,
         };
     },
-    components: { AppCard }// Registra il componente AppCard per l'utilizzo in questo componente
+    components: { AppCard, AppCardSeries } // Registra il componente AppCard per l'utilizzo in questo componente
+// Registra il componente AppCard per l'utilizzo in questo componente
 }
 
 </script>
@@ -24,7 +26,7 @@ export default {
         </div>
         <div class="row">
             <div class="col-4 serie" v-for="serie in store.seriesArray">
-                <AppCard :movie="serie"/>
+                <AppCardSeries :serie="serie" />
             </div>
         </div>
     </div>
