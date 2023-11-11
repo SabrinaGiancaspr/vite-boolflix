@@ -23,6 +23,13 @@ export default {
             } else {
                 return '';
             }
+        },
+        
+        poster (){
+            if (this.movie.poster_path == null){
+                return 'madame.jpeg';
+            }
+            return `https://image.tmdb.org/t/p/w500${this.movie.poster_path}`
         }
     }
 }
@@ -36,14 +43,15 @@ export default {
             <!-- Visualizza le informazioni del film, inclusa la bandiera del paese se disponibile -->
             <li> {{ movie.title }} </li>
             <li> {{ movie.original_title  }} </li>
-
             <!-- Visualizza la bandiera solo se disponibile, altrimenti mostra la lingua originale del film -->
             <li class="flag"> <img v-show="flag != false" :src="flag" alt="">
                 <span v-show="flag === false"> {{ movie.original_language }}</span>
             </li>
             <li> {{ movie.vote_average }} </li>
-
         </ul>
+        <div class="poster">
+            <img :src="poster" alt="">
+        </div>
     </div>
 </template>
 
