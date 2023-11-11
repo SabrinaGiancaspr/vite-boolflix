@@ -1,5 +1,11 @@
 <script>
 export default {
+    data() {
+        return {
+            star: [['far', 'star'], ['fas', 'star']],
+
+        }
+    },
     props: {
         serie: {
             type: Object,
@@ -29,6 +35,24 @@ export default {
                 return 'madame.jpeg';
             }
             return `https://image.tmdb.org/t/p/w500${this.serie.poster_path}`
+        },
+        starRating() {
+            const rating = Math.ceil(this.serie.vote_average / 2);
+            return rating;
+        },
+
+        starIcon() {
+            const starsArray = []
+            for (let i = 0; i < 5; i++) {
+                if (i + 1 <= this.starRating) {
+                    starsArray.push('fa-solid')
+                } else  {
+                    starsArray.push('fa-regular')
+                }
+
+            }
+            return starsArray;
+            // return index <= this.starRating ? 'fas fa-star' : 'far fa-star';
         }
     }
 }
@@ -44,6 +68,10 @@ export default {
                 <span v-show="flag === false"> {{ serie.original_language}}</span>
             </li>
             <li>{{ serie.vote_average }}</li>
+            <li>
+                <font-awesome-icon v-for="star in starIcon" :icon= "`${star} fa-star `"/>
+
+            </li>
         </ul>
         <div class="poster">
             <img :src="poster" alt="">
