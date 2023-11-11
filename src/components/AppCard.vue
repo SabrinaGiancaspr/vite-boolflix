@@ -33,7 +33,7 @@ export default {
         },
 
         starRating() {
-            const rating = Math.round(this.movie.vote_average / 2);
+            const rating = Math.ceil(this.movie.vote_average / 2);
             return rating;
         }
     }
