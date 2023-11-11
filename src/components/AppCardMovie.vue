@@ -1,11 +1,18 @@
 <script>
 
 export default {
+    data() {
+        return {
+            star: [['far', 'star'], ['fas', 'star']],
+
+        }
+    },
     props: {
         movie: {
             type: Object,
         }
     },
+
     // calcolare dinamicamente la bandiera del paese in base alla lingua originale del film
     computed: {
         flag() {
@@ -35,7 +42,22 @@ export default {
         starRating() {
             const rating = Math.ceil(this.movie.vote_average / 2);
             return rating;
+        },
+
+        starIcon() {
+            const starsArray = []
+            for (let i = 0; i < 5; i++) {
+                if (i + 1 <= this.starRating) {
+                    starsArray.push('fa-solid')
+                } else  {
+                    starsArray.push('fa-regular')
+                }
+
+            }
+            return starsArray;
+            // return index <= this.starRating ? 'fas fa-star' : 'far fa-star';
         }
+
     }
 }
 
@@ -53,6 +75,12 @@ export default {
                 <span v-show="flag === false"> {{ movie.original_language }}</span>
             </li>
             <li> {{ starRating }} </li>
+            <li>
+                <font-awesome-icon v-for="star in starIcon" :icon= "`${star} fa-star `"/>
+
+            </li>
+            <!-- <font-awesome-icon  :icon="" /> -->
+
         </ul>
         <div class="poster">
             <img :src="poster" alt="">
