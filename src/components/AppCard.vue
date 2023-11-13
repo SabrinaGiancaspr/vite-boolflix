@@ -106,8 +106,8 @@ export default {
         Rating:
         <font-awesome-icon
           class="star-icon"
-          v-for="starIdx in 5"
-          :icon="[starIdx <= starRating ? 'fa-solid' : 'fa-regular', 'fa-star']"
+          v-for="starIndex in 5"
+          :icon="[starIndex <= starRating ? 'fa-solid' : 'fa-regular', 'fa-star']"
         />
       </li>
      
