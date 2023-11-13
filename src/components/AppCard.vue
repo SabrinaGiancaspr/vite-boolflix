@@ -11,6 +11,7 @@ export default {
       ],
       store: store,
       castList: [],
+        selectedGenre: ''
     };
   },
   props: {
@@ -139,5 +140,6 @@ export default {
 .genre{
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
 }
 </style>

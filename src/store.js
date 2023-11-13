@@ -6,5 +6,6 @@ export const store = reactive({
   moviesArray: [],
   seriesArray:[],
   API_KEY: '2666caa6db838aa58fe40fb4511ab3df&',
-  genresArray:[]
+  genresArray:[],
+  filterGenres: '0',
 });

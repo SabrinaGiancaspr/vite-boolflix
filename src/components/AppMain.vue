@@ -19,13 +19,12 @@ export default {
     <div class="container">
         <h1 class="category" v-show="store.moviesArray.length > 0">Films:</h1>
         <div class="row">
-            <!-- Itera attraverso l'array di film nello store e visualizza il componente AppCard per ciascun film -->
-            <AppCard v-for="movie in store.moviesArray" :item="movie" :category="'movie'"/>
+            <AppCard v-show="movie.genre_ids.includes(store.filterGenres) || store.filterGenres === '0'" v-for="movie in store.moviesArray" :item="movie" :category="'movie'" />
             
         </div>
-        <h1 class="category"  v-show="store.seriesArray.length > 0">Series:</h1>
+        <h1 class="category" v-show="store.seriesArray.length > 0">Series:</h1>
         <div class="row">
-            <AppCard v-for="serie in store.seriesArray" :item="serie" :category="'serie'" />
+            <AppCard v-show="serie.genre_ids.includes(store.filterGenres) || store.filterGenres === '0'" v-for="serie in store.seriesArray" :item="serie" :category="'serie'" />
         </div>
     </div>
 </template>
