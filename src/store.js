@@ -5,4 +5,5 @@ export const store = reactive({
   saveName: '',
   moviesArray: [],
   seriesArray:[],
+  API_KEY: '2666caa6db838aa58fe40fb4511ab3df&'
 });

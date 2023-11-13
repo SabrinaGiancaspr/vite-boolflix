@@ -1,10 +1,14 @@
 <script>
+import axios from 'axios'
+import { store } from '../store'
 
 export default {
     data() {
         return {
             star: [['far', 'star'], ['fas', 'star']],
-
+            store: store,
+            castList: [],
+            castVisible: false,
         }
     },
     props: {
@@ -59,9 +63,25 @@ export default {
             return starsArray;
             // return index <= this.starRating ? 'fas fa-star' : 'far fa-star';
         }
-
     },
 
+    methods: {
+        creditsRequest() {
+
+            axios.get(`https://api.themoviedb.org/3/movie/${this.item.id}/credits?api_key=${this.store.API_KEY}`)
+                .then(res => {
+                    this.castList = res.data.cast.slice(0, 5)
+                    // console.log(this.castList)
+                })
+        },
+
+        toggleCast() {
+            this.castVisible = !this.castVisible;
+            if (this.castVisible) {
+                this.creditsRequest();
+            }
+        },
+    }
 }
 
 
@@ -85,6 +105,10 @@ export default {
             <li>Rating:
                 <font-awesome-icon class="star-icon" v-for="star in starIcon" :icon="`${star} fa-star `" />
             </li>
+            <li>
+                <button class="btn" href="#" @click="toggleCast()">Cast: </button>
+                <span v-if="castVisible" class="list" v-for="cast in castList">{{ cast.name }}</span>
+            </li>
         </ul>
         <figure>
             <img class="poster" :src="poster" alt="">
@@ -93,4 +117,15 @@ export default {
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.btn {
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+
+.list {
+    margin-right: 10px; // Aggiungi uno spazio tra i nomi degli attori
+}
+</style>
