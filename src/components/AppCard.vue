@@ -53,20 +53,6 @@ export default {
       const rating = Math.ceil(this.item.vote_average / 2);
       return rating;
     },
-
-    starIcon() {
-      // Genera un array di icone stella solid o regular in base al rating
-      const starsArray = [];
-      for (let i = 0; i < 5; i++) {
-        if (i + 1 <= this.starRating) {
-          starsArray.push("fa-solid");
-        } else {
-          starsArray.push("fa-regular");
-        }
-      }
-      return starsArray;
-      // return index <= this.starRating ? 'fas fa-star' : 'far fa-star';
-    },
   },
   created() {
     this.creditsRequest();
@@ -120,8 +106,8 @@ export default {
         Rating:
         <font-awesome-icon
           class="star-icon"
-          v-for="star in starIcon"
-          :icon="`${star} fa-star `"
+          v-for="starIdx in 5"
+          :icon="[starIdx <= starRating ? 'fa-solid' : 'fa-regular', 'fa-star']"
         />
       </li>
      

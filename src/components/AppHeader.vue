@@ -26,7 +26,6 @@ export default {
                 <!-- Barra di ricerca con campo di input e pulsante di ricerca -->
                 <div class="searchbar">
                     <select class="category-genre" name="category-genre" id="" >
-                        <option value="">All</option>
                         <option value="" v-for="genre in store.genresArray">{{ genre.name }}</option>
                     </select>
                     <input class="bar" @keyup.enter="onclick()" v-model="store.saveName" type="search" name="" id="" placeholder="Search">

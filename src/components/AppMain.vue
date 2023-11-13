@@ -11,7 +11,6 @@ export default {
         };
     },
     components: { AppCard } // Registra il componente AppCard per l'utilizzo in questo componente
-
 }
 
 </script>
